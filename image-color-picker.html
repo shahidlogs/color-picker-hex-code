@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Image Color Picker – Pick Color From Image Online</title>
+
+<meta name="description" content="Free image color picker online. Upload an image and click anywhere to get HEX, RGB, and color code instantly." />
+
+<meta name="keywords" content="image color picker, pick color from image, color picker from image, get hex from image, extract color from image" />
+
+<meta name="robots" content="index, follow" />
+
+<link rel="canonical" href="https://colorpickerhexcode.com/image-color-picker.html" />
+
+<meta property="og:title" content="Image Color Picker – Pick Color From Image Online" />
+<meta property="og:description" content="Upload image and click to get exact hex color code instantly." />
+<meta property="og:type" content="website" />
+
+<style>
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#0f1117;
+color:#fff;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:#1b1f2a;
+border:1px solid #2e3646;
+border-radius:20px;
+padding:20px;
+margin-bottom:20px;
+}
+
+canvas{
+max-width:100%;
+border-radius:10px;
+}
+
+.preview{
+height:80px;
+border-radius:10px;
+margin-top:10px;
+border:1px solid #2e3646;
+}
+
+a{color:#f6c94c;}
+
+</style>
+
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Image Color Picker",
+"url":"https://colorpickerhexcode.com/image-color-picker.html",
+"applicationCategory":"UtilityApplication"
+}
+</script>
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h1>Image Color Picker</h1>
+
+<p>
+Upload an image and click anywhere to get the exact color code.
+</p>
+
+<input type="file" id="upload">
+
+<canvas id="canvas"></canvas>
+
+<div class="preview" id="preview"></div>
+
+<p>HEX: <b id="hex">#000000</b></p>
+
+</div>
+
+
+<div class="card">
+
+<h2>What is Image Color Picker?</h2>
+
+<p>
+Image color picker lets you upload a photo and click any pixel to find its hex color code.
+</p>
+
+<h2>Who uses this?</h2>
+
+<ul>
+<li>Designers</li>
+<li>Developers</li>
+<li>Photoshop users</li>
+<li>Web designers</li>
+</ul>
+
+<h2>Related tool</h2>
+
+<p>
+<a href="/">Color Picker Hex Code Tool</a>
+</p>
+
+</div>
+
+</div>
+
+
+<script>
+
+const canvas=document.getElementById("canvas");
+const ctx=canvas.getContext("2d");
+
+document.getElementById("upload").addEventListener("change",e=>{
+
+let file=e.target.files[0];
+
+let reader=new FileReader();
+
+reader.onload=function(ev){
+
+let img=new Image();
+
+img.onload=function(){
+
+canvas.width=img.width;
+canvas.height=img.height;
+
+ctx.drawImage(img,0,0);
+
+};
+
+img.src=ev.target.result;
+
+};
+
+reader.readAsDataURL(file);
+
+});
+
+canvas.addEventListener("click",e=>{
+
+let rect=canvas.getBoundingClientRect();
+
+let x=e.clientX-rect.left;
+let y=e.clientY-rect.top;
+
+let pixel=ctx.getImageData(x,y,1,1).data;
+
+let hex="#"+
+pixel[0].toString(16).padStart(2,"0")+
+pixel[1].toString(16).padStart(2,"0")+
+pixel[2].toString(16).padStart(2,"0");
+
+document.getElementById("hex").textContent=hex;
+document.getElementById("preview").style.background=hex;
+
+});
+
+</script>
+
+</body>
+</html>
