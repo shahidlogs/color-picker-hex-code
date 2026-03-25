@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Hex Color Generator – Generate Random HEX Color Codes Online</title>
+<meta name="description" content="Free hex color generator online. Generate random HEX color codes instantly for CSS, design, branding, and web development." />
+<meta name="keywords" content="hex color generator, random hex color, generate hex color, hex code generator, random color generator" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://colorpickerhexcode.com/hex-color-generator.html" />
+
+<meta property="og:title" content="Hex Color Generator – Generate Random HEX Color Codes Online" />
+<meta property="og:description" content="Generate random hex color codes instantly with this free online hex color generator." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://colorpickerhexcode.com/hex-color-generator.html" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Hex Color Generator – Generate Random HEX Color Codes Online" />
+<meta name="twitter:description" content="Use this free online hex color generator to create random HEX color codes instantly." />
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#0f1117;
+  color:#f3f5f8;
+}
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+}
+.card{
+  background:#1b1f2a;
+  border:1px solid #2e3646;
+  border-radius:20px;
+  padding:20px;
+  margin-bottom:20px;
+}
+button{
+  padding:12px 18px;
+  background:#8f6b00;
+  border:none;
+  border-radius:10px;
+  color:#fff;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:14px;
+}
+.preview{
+  height:90px;
+  border-radius:14px;
+  margin-top:16px;
+  border:1px solid #2e3646;
+}
+.value{
+  margin-top:14px;
+  font-size:20px;
+  font-weight:700;
+  color:#fff;
+  word-break:break-word;
+}
+a{color:#f6c94c;text-decoration:none;}
+a:hover{text-decoration:underline;}
+p, li{color:#c7cfdb;line-height:1.6;}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Hex Color Generator",
+  "url":"https://colorpickerhexcode.com/hex-color-generator.html",
+  "applicationCategory":"UtilityApplication",
+  "operatingSystem":"Any",
+  "description":"A free online random hex color generator tool."
+}
+</script>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="card">
+    <h1>Hex Color Generator</h1>
+    <p>
+      Generate random HEX color codes instantly with this free online hex color generator tool.
+    </p>
+
+    <button onclick="generateHex()">Generate Random HEX Color</button>
+
+    <div class="preview" id="preview"></div>
+    <div class="value" id="hexValue">#8F6B00</div>
+  </div>
+
+  <div class="card">
+    <h2>What Is a Hex Color Generator?</h2>
+    <p>
+      A hex color generator creates random hexadecimal color codes that can be used in CSS, websites, graphics, apps, and branding projects.
+    </p>
+
+    <h2>Why Use It?</h2>
+    <ul>
+      <li>Find random color inspiration</li>
+      <li>Create quick design ideas</li>
+      <li>Test colors for websites and apps</li>
+      <li>Generate color codes for CSS</li>
+    </ul>
+
+    <h2>Example</h2>
+    <p>
+      A generated color might look like <strong>#4A90E2</strong> or <strong>#FF6B6B</strong>.
+    </p>
+
+    <h2>Related Tool</h2>
+    <p>
+      Try the main <a href="/">Color Picker Hex Code Tool</a> to pick, copy, and extract HEX, RGB, and HSL colors.
+    </p>
+  </div>
+
+</div>
+
+<script>
+function componentToHex(c){
+  const hex = c.toString(16).toUpperCase();
+  return hex.length === 1 ? "0" + hex : hex;
+}
+
+function randomHex(){
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
+
+function generateHex(){
+  const hex = randomHex();
+  document.getElementById("hexValue").textContent = hex;
+  document.getElementById("preview").style.background = hex;
+}
+
+generateHex();
+</script>
+
+</body>
+</html>
