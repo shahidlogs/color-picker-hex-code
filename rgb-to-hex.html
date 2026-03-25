@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>RGB to HEX Converter – Convert RGB Color to Hex Code</title>
+
+<meta name="description" content="Free RGB to HEX converter online. Convert RGB color values into hex color codes instantly for CSS, web design, and graphics." />
+
+<meta name="keywords" content="rgb to hex, rgb to hex converter, convert rgb to hex, rgb color to hex, hex color code converter" />
+
+<meta name="robots" content="index, follow" />
+
+<link rel="canonical" href="https://colorpickerhexcode.com/rgb-to-hex.html" />
+
+<meta property="og:title" content="RGB to HEX Converter – Convert RGB Color to Hex Code" />
+<meta property="og:description" content="Convert RGB color values to hex code instantly using this free online converter." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://colorpickerhexcode.com/rgb-to-hex.html" />
+
+<style>
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#0f1117;
+color:#f3f5f8;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:#1b1f2a;
+border:1px solid #2e3646;
+border-radius:20px;
+padding:20px;
+margin-bottom:20px;
+}
+
+input{
+padding:12px;
+border-radius:10px;
+border:1px solid #3a4356;
+background:#111520;
+color:#fff;
+margin:5px;
+width:80px;
+}
+
+button{
+padding:12px 16px;
+background:#8f6b00;
+border:none;
+border-radius:10px;
+color:#fff;
+font-weight:bold;
+cursor:pointer;
+}
+
+.preview{
+height:70px;
+border-radius:10px;
+margin-top:10px;
+border:1px solid #2e3646;
+}
+
+a{color:#f6c94c;}
+
+</style>
+
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"RGB to HEX Converter",
+"url":"https://colorpickerhexcode.com/rgb-to-hex.html",
+"applicationCategory":"UtilityApplication",
+"operatingSystem":"Any"
+}
+</script>
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h1>RGB to HEX Converter</h1>
+
+<p>
+Convert RGB color values to HEX color code instantly using this free online tool.
+</p>
+
+<input id="r" placeholder="R" value="255">
+<input id="g" placeholder="G" value="0">
+<input id="b" placeholder="B" value="0">
+
+<button onclick="convert()">Convert</button>
+
+<div class="preview" id="preview"></div>
+
+<p>HEX: <b id="hex">#FF0000</b></p>
+
+</div>
+
+
+<div class="card">
+
+<h2>What is RGB to HEX?</h2>
+
+<p>
+RGB to HEX conversion changes Red Green Blue values into hexadecimal color code used in CSS and web design.
+</p>
+
+<h2>Example</h2>
+
+<p>
+rgb(255,0,0) = #FF0000
+</p>
+
+<h2>Related tool</h2>
+
+<p>
+<a href="/">Color Picker Hex Code Tool</a>
+</p>
+
+</div>
+
+</div>
+
+
+<script>
+
+function componentToHex(c){
+let hex=c.toString(16);
+return hex.length==1?"0"+hex:hex;
+}
+
+function convert(){
+
+let r=parseInt(document.getElementById("r").value)||0;
+let g=parseInt(document.getElementById("g").value)||0;
+let b=parseInt(document.getElementById("b").value)||0;
+
+let hex="#"+componentToHex(r)+componentToHex(g)+componentToHex(b);
+
+document.getElementById("hex").textContent=hex;
+
+document.getElementById("preview").style.background=hex;
+
+}
+
+convert();
+
+</script>
+
+</body>
+</html>
