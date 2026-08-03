@@ -68,13 +68,38 @@
     }
 
     .hero{
-      background:linear-gradient(135deg, #134d37, #1d6f4f);
+      --hero-color:#8f6b00;
+      position:relative;
+      isolation:isolate;
+      display:grid;
+      grid-template-columns:minmax(0,1.05fr) minmax(390px,.95fr);
+      gap:clamp(24px,4vw,54px);
+      align-items:center;
+      overflow:hidden;
       color:#fff;
+      border:1px solid rgba(255,255,255,.11);
       border-radius:28px;
-      padding:26px 20px 22px;
+      padding:clamp(24px,4vw,42px);
       box-shadow:var(--shadow);
       margin-bottom:16px;
+      background:
+        radial-gradient(circle at 83% 26%, color-mix(in srgb, var(--hero-color) 52%, transparent), transparent 34%),
+        radial-gradient(circle at 8% 110%, rgba(36,132,102,.28), transparent 42%),
+        linear-gradient(135deg,#151a25 0%,#10141e 55%,#171522 100%);
     }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      z-index:-1;
+      inset:0;
+      opacity:.22;
+      background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);
+      background-size:34px 34px;
+      mask-image:linear-gradient(90deg,transparent,black 55%);
+    }
+
+    .hero-copy{position:relative;z-index:1;}
 
     .eyebrow{
       display:inline-block;
@@ -96,71 +121,81 @@
       letter-spacing:-.4px;
     }
 
-    .hero p{
+    .hero-copy > p{
       margin:12px 0 0;
-      max-width:860px;
+      max-width:620px;
       font-size:16px;
-      color:rgba(255,255,255,.94);
+      color:#d9dfeb;
     }
 
-    .top-bar{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:20px;
-      padding:14px 16px;
-      display:grid;
-      grid-template-columns:auto 1fr auto;
-      gap:14px;
-      align-items:center;
-      box-shadow:var(--shadow);
-      margin-bottom:16px;
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;}
+    .hero-actions .btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center;}
+    .hero-actions .primary{background:#f4cf58;color:#19160c;border-color:#f4cf58;}
+    .hero-features{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px;}
+    .hero-feature{display:inline-flex;align-items:center;gap:7px;padding:6px 9px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(11,14,21,.5);color:#dce3ed;font-size:12px;font-weight:700;}
+    .hero-feature::before{content:"";width:7px;height:7px;border-radius:50%;background:#77d6ac;box-shadow:0 0 0 3px rgba(119,214,172,.12);}
+
+    .hero-preview{
+      position:relative;
+      z-index:1;
+      padding:14px;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:22px;
+      background:rgba(12,15,22,.88);
+      box-shadow:0 22px 48px rgba(0,0,0,.35);
     }
+
+    .hero-preview-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;color:#cbd3df;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;}
 
     .top-swatch{
-      width:54px;
-      height:54px;
-      border-radius:50%;
-      border:2px solid rgba(255,255,255,.16);
-      box-shadow:inset 0 0 0 2px rgba(0,0,0,.15);
+      width:100%;
+      height:118px;
+      border-radius:15px;
+      border:1px solid rgba(255,255,255,.2);
+      box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);
       background:#8f6b00;
-      flex:none;
     }
 
     .top-values{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-      min-width:0;
+      display:grid;
+      gap:0;
+      margin-top:10px;
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:13px;
+      overflow:hidden;
     }
 
     .top-item{
-      display:flex;
-      gap:8px;
+      display:grid;
+      grid-template-columns:42px minmax(0,1fr) auto;
+      gap:10px;
       align-items:center;
-      flex-wrap:wrap;
+      padding:8px 10px;
+      border-bottom:1px solid rgba(255,255,255,.09);
     }
+    .top-item:last-child{border-bottom:0;}
 
     .top-label{
-      font-size:14px;
+      font-size:11px;
       font-weight:700;
       color:#d9deea;
       opacity:.95;
     }
 
     .top-value{
-      font-size:15px;
+      font-size:13px;
+      font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
       font-weight:800;
       color:#fff;
       word-break:break-word;
     }
 
-    .top-actions{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
+    .hero-copy-btn{padding:6px 9px;border-radius:8px;font-size:11px;}
+    .hero-harmony{display:flex;align-items:center;gap:8px;margin-top:10px;}
+    .hero-harmony-label{color:#aeb7c6;font-size:11px;font-weight:700;}
+    .hero-harmony-swatches{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;flex:1;}
+    .hero-harmony-swatch{height:18px;border:1px solid rgba(255,255,255,.18);border-radius:6px;}
+    .hero-status{min-height:18px;margin:5px 0 0;color:#88dfb8;font-size:12px;font-weight:700;}
 
     .grid{
       display:grid;
@@ -175,6 +210,7 @@
       box-shadow:var(--shadow);
       overflow:hidden;
     }
+    .card[id]{scroll-margin-top:16px;}
 
     .card-head{
       padding:16px 18px;
@@ -224,6 +260,8 @@
     .tab-btn:hover{
       transform:translateY(-1px);
     }
+
+    .btn:focus-visible,.tab-btn:focus-visible,a:focus-visible{outline:3px solid #79c2ff;outline-offset:3px;}
 
     .controls{
       display:flex;
@@ -613,6 +651,7 @@
     }
 
     @media (max-width:1020px){
+      .hero{grid-template-columns:minmax(0,1fr) minmax(340px,.82fr);gap:22px;}
       .grid{
         grid-template-columns:1fr;
       }
@@ -630,22 +669,18 @@
       }
 
       .hero{
+        grid-template-columns:1fr;
         border-radius:22px;
         padding:20px 16px 18px;
+        gap:20px;
       }
 
       h1{
         font-size:26px;
       }
 
-      .top-bar{
-        grid-template-columns:1fr;
-        justify-items:start;
-      }
-
-      .top-actions{
-        justify-content:flex-start;
-      }
+      .hero-actions .btn{flex:1;min-width:140px;}
+      .top-swatch{height:92px;}
 
       .picker-side{
         gap:10px;
@@ -675,6 +710,10 @@
         border-radius:999px;
       }
     }
+
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important;}
+    }
   </style>
 
   <script type="application/ld+json">
@@ -692,41 +731,37 @@
 </head>
 <body>
   <div class="container">
-    <section class="hero">
-      <div class="eyebrow">Free Online Tool</div>
-      <h1>Color Picker Hex Code</h1>
-      <p>
-        Choose a color and copy its HEX, RGB, or HSL value. You can also build color harmonies or upload an image and sample a pixel—all processing stays in your browser.
-      </p>
-    </section>
-
-    <section class="top-bar">
-      <div class="top-swatch" id="topSwatch"></div>
-
-      <div class="top-values">
-        <div class="top-item">
-          <span class="top-label">HEX</span>
-          <span class="top-value" id="topHex">#8F6B00</span>
+    <section class="hero" id="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Free Online Tool</div>
+        <h1>Color Picker Hex Code</h1>
+        <p>Choose a color and copy its HEX, RGB, or HSL value. Build color harmonies or sample a pixel from an image—all processing stays in your browser.</p>
+        <div class="hero-actions" aria-label="Start using a color tool">
+          <a class="btn primary" href="#advanced-color-picker">Pick a Color</a>
+          <a class="btn secondary" href="#image-color-picker">Pick From Image</a>
         </div>
-        <div class="top-item">
-          <span class="top-label">RGB</span>
-          <span class="top-value" id="topRgb">143, 107, 0</span>
-        </div>
-        <div class="top-item">
-          <span class="top-label">HSL</span>
-          <span class="top-value" id="topHsl">45, 100%, 28%</span>
+        <div class="hero-features" aria-label="Tool features">
+          <span class="hero-feature">Instant Results</span>
+          <span class="hero-feature">Private in Your Browser</span>
+          <span class="hero-feature">No Image Upload</span>
         </div>
       </div>
 
-      <div class="top-actions">
-        <button class="btn secondary" id="copyTopHexBtn">Copy HEX</button>
-        <button class="btn secondary" id="copyTopRgbBtn">Copy RGB</button>
-        <button class="btn secondary" id="copyTopHslBtn">Copy HSL</button>
+      <div class="hero-preview" aria-label="Current selected color">
+        <div class="hero-preview-head"><span>Live color</span><span>Updates with picker</span></div>
+        <div class="top-swatch" id="topSwatch" role="img" aria-label="Selected color preview"></div>
+        <div class="top-values">
+          <div class="top-item"><span class="top-label">HEX</span><span class="top-value" id="topHex">#8F6B00</span><button class="btn secondary hero-copy-btn" id="copyTopHexBtn" type="button" aria-label="Copy HEX color value">Copy</button></div>
+          <div class="top-item"><span class="top-label">RGB</span><span class="top-value" id="topRgb">rgb(143, 107, 0)</span><button class="btn secondary hero-copy-btn" id="copyTopRgbBtn" type="button" aria-label="Copy RGB color value">Copy</button></div>
+          <div class="top-item"><span class="top-label">HSL</span><span class="top-value" id="topHsl">hsl(45, 100%, 28%)</span><button class="btn secondary hero-copy-btn" id="copyTopHslBtn" type="button" aria-label="Copy HSL color value">Copy</button></div>
+        </div>
+        <div class="hero-harmony"><span class="hero-harmony-label">Analogous</span><div class="hero-harmony-swatches" id="heroHarmonySwatches" aria-label="Related analogous colors"></div></div>
+        <p class="hero-status" id="heroStatus" role="status" aria-live="polite"></p>
       </div>
     </section>
 
     <section class="grid">
-      <div class="card">
+      <div class="card" id="advanced-color-picker">
         <div class="card-head">
           <h2>Advanced HEX Color Picker</h2>
           <p>Use the color box and hue slider to find your exact color code.</p>
@@ -801,7 +836,7 @@
         </div>
       </div>
 
-      <div class="card">
+      <div class="card" id="image-color-picker">
         <div class="card-head">
           <h2>Pick Color From Image</h2>
           <p>Upload an image, then click any point to get its exact HEX code and color values.</p>
@@ -980,6 +1015,9 @@
     const topHex = document.getElementById('topHex');
     const topRgb = document.getElementById('topRgb');
     const topHsl = document.getElementById('topHsl');
+    const hero = document.getElementById('hero');
+    const heroHarmonySwatches = document.getElementById('heroHarmonySwatches');
+    const heroStatus = document.getElementById('heroStatus');
 
     const status = document.getElementById('status');
     const imageStatus = document.getElementById('imageStatus');
@@ -1188,14 +1226,21 @@
       svWrap.style.background = `hsl(${currentHue}, 100%, 50%)`;
       bigSwatch.style.background = hex;
       topSwatch.style.background = hex;
+      topSwatch.setAttribute('aria-label', `Selected color preview: ${hex}`);
+      hero.style.setProperty('--hero-color', hex);
 
       hexValue.textContent = hex;
       rgbValue.textContent = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
       hslValue.textContent = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
 
       topHex.textContent = hex;
-      topRgb.textContent = `${rgb.r}, ${rgb.g}, ${rgb.b}`;
-      topHsl.textContent = `${hsl.h}, ${hsl.s}%, ${hsl.l}%`;
+      topRgb.textContent = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+      topHsl.textContent = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
+
+      const heroHarmony = makeHarmonyColors(hex).analogous;
+      heroHarmonySwatches.innerHTML = heroHarmony.map(color =>
+        `<span class="hero-harmony-swatch" style="background:${color}" title="${color}"></span>`
+      ).join('');
 
       positionPointers();
       renderHarmonies(hex);
@@ -1490,9 +1535,9 @@
     copyRgbBtn.addEventListener('click', () => copyText(getCurrentRgb()));
     copyHslBtn.addEventListener('click', () => copyText(getCurrentHsl()));
 
-    copyTopHexBtn.addEventListener('click', () => copyText(topHex.textContent));
-    copyTopRgbBtn.addEventListener('click', () => copyText(topRgb.textContent));
-    copyTopHslBtn.addEventListener('click', () => copyText(topHsl.textContent));
+    copyTopHexBtn.addEventListener('click', () => copyText(topHex.textContent, heroStatus));
+    copyTopRgbBtn.addEventListener('click', () => copyText(topRgb.textContent, heroStatus));
+    copyTopHslBtn.addEventListener('click', () => copyText(topHsl.textContent, heroStatus));
 
     imageUpload.addEventListener('change', e => {
       const file = e.target.files[0];
