@@ -1,164 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<title>RGB to HEX Converter – Convert RGB Color to Hex Code</title>
-
-<meta name="description" content="Free RGB to HEX converter online. Convert RGB color values into hex color codes instantly for CSS, web design, and graphics." />
-
-<meta name="keywords" content="rgb to hex, rgb to hex converter, convert rgb to hex, rgb color to hex, hex color code converter" />
-
-<meta name="robots" content="index, follow" />
-
-<link rel="canonical" href="https://colorpickerhexcode.com/rgb-to-hex.html" />
-
-<meta property="og:title" content="RGB to HEX Converter – Convert RGB Color to Hex Code" />
-<meta property="og:description" content="Convert RGB color values to hex code instantly using this free online converter." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://colorpickerhexcode.com/rgb-to-hex.html" />
-
-<style>
-
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#0f1117;
-color:#f3f5f8;
-}
-
-.container{
-max-width:900px;
-margin:auto;
-padding:20px;
-}
-
-.card{
-background:#1b1f2a;
-border:1px solid #2e3646;
-border-radius:20px;
-padding:20px;
-margin-bottom:20px;
-}
-
-input{
-padding:12px;
-border-radius:10px;
-border:1px solid #3a4356;
-background:#111520;
-color:#fff;
-margin:5px;
-width:80px;
-}
-
-button{
-padding:12px 16px;
-background:#8f6b00;
-border:none;
-border-radius:10px;
-color:#fff;
-font-weight:bold;
-cursor:pointer;
-}
-
-.preview{
-height:70px;
-border-radius:10px;
-margin-top:10px;
-border:1px solid #2e3646;
-}
-
-a{color:#f6c94c;}
-
-</style>
-
-<script type="application/ld+json">
-{
-"@context":"https://schema.org",
-"@type":"WebApplication",
-"name":"RGB to HEX Converter",
-"url":"https://colorpickerhexcode.com/rgb-to-hex.html",
-"applicationCategory":"UtilityApplication",
-"operatingSystem":"Any"
-}
-</script>
-
-</head>
-<body>
-
-<div class="container">
-
-<div class="card">
-
-<h1>RGB to HEX Converter</h1>
-
-<p>
-Convert RGB color values to HEX color code instantly using this free online tool.
-</p>
-
-<input id="r" placeholder="R" value="255">
-<input id="g" placeholder="G" value="0">
-<input id="b" placeholder="B" value="0">
-
-<button onclick="convert()">Convert</button>
-
-<div class="preview" id="preview"></div>
-
-<p>HEX: <b id="hex">#FF0000</b></p>
-
-</div>
-
-
-<div class="card">
-
-<h2>What is RGB to HEX?</h2>
-
-<p>
-RGB to HEX conversion changes Red Green Blue values into hexadecimal color code used in CSS and web design.
-</p>
-
-<h2>Example</h2>
-
-<p>
-rgb(255,0,0) = #FF0000
-</p>
-
-<h2>Related tool</h2>
-
-<p>
-<a href="/">Color Picker Hex Code Tool</a>
-</p>
-
-</div>
-
-</div>
-
-
-<script>
-
-function componentToHex(c){
-let hex=c.toString(16);
-return hex.length==1?"0"+hex:hex;
-}
-
-function convert(){
-
-let r=parseInt(document.getElementById("r").value)||0;
-let g=parseInt(document.getElementById("g").value)||0;
-let b=parseInt(document.getElementById("b").value)||0;
-
-let hex="#"+componentToHex(r)+componentToHex(g)+componentToHex(b);
-
-document.getElementById("hex").textContent=hex;
-
-document.getElementById("preview").style.background=hex;
-
-}
-
-convert();
-
-</script>
-
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RGB to HEX Converter – Convert RGB Color to Hex Online</title><meta name="description" content="Convert RGB values to HEX color codes instantly. Enter red, green and blue values, preview the color, copy the HEX code, and learn the RGB to HEX formula."><meta name="robots" content="index,follow"><meta name="theme-color" content="#0f1117"><link rel="canonical" href="https://colorpickerhexcode.com/rgb-to-hex.html"><link rel="icon" href="/favicon.ico">
+<meta property="og:type" content="website"><meta property="og:url" content="https://colorpickerhexcode.com/rgb-to-hex.html"><meta property="og:title" content="RGB to HEX Converter – Convert RGB Color to Hex Online"><meta property="og:description" content="Enter RGB channels or paste an rgb() value, preview the color, and copy its HEX code."><meta name="twitter:card" content="summary"><meta name="twitter:title" content="RGB to HEX Converter"><meta name="twitter:description" content="Convert red, green and blue values to a copy-ready HEX color code."><link rel="stylesheet" href="/assets/tool.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"RGB to HEX Converter","url":"https://colorpickerhexcode.com/rgb-to-hex.html","description":"Convert RGB color channels to a hexadecimal color code in the browser.","applicationCategory":"DesignApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript"}</script></head><body>
+<header class="site-header"><nav class="nav" aria-label="Main navigation"><a class="brand" href="/">Color Picker Hex Code</a><a href="/rgb-to-hex.html" aria-current="page">RGB to HEX</a><a href="/hex-to-rgb.html">HEX to RGB</a><a href="/hsl-color-picker.html">HSL Picker</a><a href="/image-color-picker.html">Image Picker</a></nav></header>
+<main class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> › RGB to HEX Converter</nav>
+<section class="card"><h1>RGB to HEX Converter</h1><p class="lede">Convert red, green and blue channels into a six-digit HEX color. Enter integers from 0 to 255 or paste a complete value such as <code>rgb(255, 87, 51)</code>.</p><p class="privacy-note">Conversion happens locally in your browser; no color data is uploaded.</p>
+<div class="tool-grid"><div><div class="fields"><div class="field"><label for="red">Red</label><input id="red" type="number" min="0" max="255" step="1" value="255" inputmode="numeric"><small>0–255</small></div><div class="field"><label for="green">Green</label><input id="green" type="number" min="0" max="255" step="1" value="87" inputmode="numeric"><small>0–255</small></div><div class="field"><label for="blue">Blue</label><input id="blue" type="number" min="0" max="255" step="1" value="51" inputmode="numeric"><small>0–255</small></div></div>
+<div class="paste-field"><label for="rgbPaste">Or paste an RGB value</label><input id="rgbPaste" type="text" placeholder="rgb(255, 87, 51) or 255, 87, 51" autocomplete="off"></div><p id="error" class="error" role="alert"></p><div class="actions"><button id="copy" type="button">Copy HEX</button><button id="random" class="secondary" type="button">Random color</button><button id="reset" class="secondary" type="button">Reset</button></div><p id="status" class="status" role="status" aria-live="polite"></p></div>
+<div><div id="preview" class="preview" aria-label="Color preview"></div><div class="result-panel"><div class="result-label">HEX result</div><div id="hexResult" class="result-value">#FF5733</div><div id="rgbResult">rgb(255, 87, 51)</div></div></div></div></section>
+<article class="card"><h2>What RGB and HEX mean</h2><p>RGB describes screen colors with three decimal channels: red, green and blue. Each channel ranges from 0 (none of that light) to 255 (full intensity). HEX represents the same channels with hexadecimal pairs from <code>00</code> to <code>FF</code>. A six-digit code follows <code>#RRGGBB</code>.</p>
+<h2>How to convert RGB to HEX</h2><ol class="steps"><li>Check that each RGB channel is a whole number from 0 to 255.</li><li>Convert each decimal channel to base 16.</li><li>Add a leading zero when a result has one digit.</li><li>Join the red, green and blue pairs after <code>#</code>.</li></ol><p><strong>Formula:</strong> <code># + hex(R) + hex(G) + hex(B)</code>. For <code>rgb(255, 87, 51)</code>, 255 becomes <code>FF</code>, 87 becomes <code>57</code>, and 51 becomes <code>33</code>, giving <code>#FF5733</code>.</p>
+<h2>Using the result in CSS</h2><p>HEX and RGB are interchangeable for solid sRGB colors. For example, <code>color: #FF5733;</code> and <code>color: rgb(255, 87, 51);</code> display the same color. HEX is compact for design tokens; RGB can be convenient when channel values are already available in code.</p>
+<h2>Common RGB to HEX colors</h2><table><thead><tr><th>Color</th><th>RGB</th><th>HEX</th></tr></thead><tbody><tr><td>Black</td><td>rgb(0, 0, 0)</td><td>#000000</td></tr><tr><td>White</td><td>rgb(255, 255, 255)</td><td>#FFFFFF</td></tr><tr><td>Red</td><td>rgb(255, 0, 0)</td><td>#FF0000</td></tr><tr><td>Green</td><td>rgb(0, 128, 0)</td><td>#008000</td></tr><tr><td>Blue</td><td>rgb(0, 0, 255)</td><td>#0000FF</td></tr><tr><td>Orange</td><td>rgb(255, 165, 0)</td><td>#FFA500</td></tr><tr><td>Rebecca purple</td><td>rgb(102, 51, 153)</td><td>#663399</td></tr></tbody></table>
+<div class="faq"><h2>RGB to HEX questions</h2><h3>Are lowercase and uppercase HEX codes different?</h3><p>No. <code>#ff5733</code> and <code>#FF5733</code> represent the same color; this tool uses uppercase for consistent output.</p><h3>Can RGB channels contain decimals?</h3><p>Standard 8-bit RGB channels are integers from 0 to 255. This converter asks you to correct decimals instead of silently rounding them.</p><h3>What happens to invalid values?</h3><p>Empty, negative, decimal, or above-255 channels show an error and do not replace the last valid result.</p></div></article>
+<section class="card"><h2>Related color tools</h2><div class="related"><a href="/hex-to-rgb.html">Convert HEX to RGB</a><a href="/hsl-color-picker.html">Choose a color with HSL controls</a><a href="/hsl-to-hex.html">Convert HSL to HEX</a><a href="/">Open the full HEX, RGB and HSL picker</a></div></section></main>
+<footer class="site-footer"><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy-policy.html">Privacy</a></footer><script src="/assets/common.js"></script><script>
+(function(){'use strict';var ids=['red','green','blue'],inputs=ids.map(function(id){return document.getElementById(id)}),paste=document.getElementById('rgbPaste'),error=document.getElementById('error'),status=document.getElementById('status'),hexResult=document.getElementById('hexResult'),rgbResult=document.getElementById('rgbResult'),preview=document.getElementById('preview');
+function values(){var result=[];for(var i=0;i<inputs.length;i++){var raw=inputs[i].value.trim(),n=Number(raw);if(raw===''||!Number.isInteger(n)||n<0||n>255){error.textContent='Enter a whole number from 0 to 255 for '+ids[i]+'.';inputs[i].setAttribute('aria-invalid','true');return null}inputs[i].removeAttribute('aria-invalid');result.push(n)}error.textContent='';return result}
+function update(){var v=values();if(!v)return;var hex=ColorTools.rgbToHex(v[0],v[1],v[2]);hexResult.textContent=hex;rgbResult.textContent='rgb('+v.join(', ')+')';preview.style.background=hex;preview.setAttribute('aria-label','Color preview for '+hex)}
+inputs.forEach(function(input){input.addEventListener('input',update)});paste.addEventListener('input',function(){if(!paste.value.trim()){error.textContent='';return}var match=paste.value.trim().match(/^(?:rgb\s*\(\s*)?(\d+(?:\.\d+)?)\s*[, ]\s*(\d+(?:\.\d+)?)\s*[, ]\s*(\d+(?:\.\d+)?)\s*\)?$/i);if(!match){error.textContent='Use rgb(255, 87, 51) or three comma-separated values.';return}inputs.forEach(function(input,i){input.value=match[i+1]});update()});document.getElementById('copy').addEventListener('click',function(){ColorTools.copy(hexResult.textContent,status)});document.getElementById('random').addEventListener('click',function(){inputs.forEach(function(input){input.value=Math.floor(Math.random()*256)});paste.value='';update()});document.getElementById('reset').addEventListener('click',function(){inputs[0].value=255;inputs[1].value=87;inputs[2].value=51;paste.value='';status.textContent='';update();inputs[0].focus()});update()}());
+</script></body></html>
