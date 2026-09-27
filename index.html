@@ -147,6 +147,14 @@
 
     .hero-preview-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;color:#cbd3df;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;}
 
+    .hero-hex-entry{margin:0 0 12px;}
+    .hero-hex-entry label{display:block;margin-bottom:6px;color:#cbd3df;font-size:12px;font-weight:700;}
+    .hero-hex-entry input{width:100%;min-height:44px;padding:10px 12px;border:1px solid rgba(255,255,255,.24);border-radius:10px;background:#202532;color:#fff;font:700 16px ui-monospace,SFMono-Regular,Consolas,monospace;}
+    .hero-hex-entry input::placeholder{color:#a7b0c0;opacity:1;}
+    .hero-hex-entry input:focus-visible{outline:3px solid #79c2ff;outline-offset:2px;}
+    .hero-hex-entry-hint{min-height:18px;margin:5px 0 0;color:#cbd3df;font-size:12px;}
+    .hero-hex-entry-hint.invalid{color:#ffbdad;}
+
     .top-swatch{
       width:100%;
       height:118px;
@@ -749,6 +757,11 @@
 
       <div class="hero-preview" aria-label="Current selected color">
         <div class="hero-preview-head"><span>Live color</span><span>Updates with picker</span></div>
+        <div class="hero-hex-entry">
+          <label for="heroHexInput">Enter a HEX color code</label>
+          <input id="heroHexInput" type="text" inputmode="text" maxlength="7" placeholder="#8F6B00" autocomplete="off" spellcheck="false" aria-describedby="heroHexHint">
+          <p class="hero-hex-entry-hint" id="heroHexHint">Type #RGB or #RRGGBB to preview a color.</p>
+        </div>
         <div class="top-swatch" id="topSwatch" role="img" aria-label="Selected color preview"></div>
         <div class="top-values">
           <div class="top-item"><span class="top-label">HEX</span><span class="top-value" id="topHex">#8F6B00</span><button class="btn secondary hero-copy-btn" id="copyTopHexBtn" type="button" aria-label="Copy HEX color value">Copy</button></div>
@@ -1012,6 +1025,8 @@
     const rgbValue = document.getElementById('rgbValue');
     const hslValue = document.getElementById('hslValue');
 
+    const heroHexInput = document.getElementById('heroHexInput');
+    const heroHexHint = document.getElementById('heroHexHint');
     const topHex = document.getElementById('topHex');
     const topRgb = document.getElementById('topRgb');
     const topHsl = document.getElementById('topHsl');
@@ -1233,6 +1248,7 @@
       rgbValue.textContent = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
       hslValue.textContent = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
 
+      if (document.activeElement !== heroHexInput) heroHexInput.value = '';
       topHex.textContent = hex;
       topRgb.textContent = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
       topHsl.textContent = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
@@ -1535,6 +1551,23 @@
     copyRgbBtn.addEventListener('click', () => copyText(getCurrentRgb()));
     copyHslBtn.addEventListener('click', () => copyText(getCurrentHsl()));
 
+    function applyTypedHex(showError = false) {
+      const value = heroHexInput.value.trim();
+      if (/^#?(?:[0-9a-f]{3}|[0-9a-f]{6})$/i.test(value)) {
+        setMainColorFromHex(value.startsWith('#') ? value : '#' + value);
+        heroHexHint.textContent = 'Color preview updated.';
+        heroHexHint.classList.remove('invalid');
+      } else {
+        heroHexHint.textContent = showError && value ? 'Enter a valid #RGB or #RRGGBB code.' : 'Type #RGB or #RRGGBB to preview a color.';
+        heroHexHint.classList.toggle('invalid', Boolean(showError && value));
+      }
+    }
+    heroHexInput.addEventListener('input', () => applyTypedHex());
+    heroHexInput.addEventListener('blur', () => applyTypedHex(true));
+    heroHexInput.addEventListener('keydown', event => {
+      if (event.key === 'Enter') { event.preventDefault(); applyTypedHex(true); }
+    });
+
     copyTopHexBtn.addEventListener('click', () => copyText(topHex.textContent, heroStatus));
     copyTopRgbBtn.addEventListener('click', () => copyText(topRgb.textContent, heroStatus));
     copyTopHslBtn.addEventListener('click', () => copyText(topHsl.textContent, heroStatus));
@@ -1610,3 +1643,4 @@
   </script>
 </body>
 </html>
+
